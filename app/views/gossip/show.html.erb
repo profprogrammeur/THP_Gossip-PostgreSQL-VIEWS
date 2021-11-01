@@ -2,12 +2,10 @@
 <p>Find me in app/views/gossip/show.html.erb</p>
 
 <h3> Titre :  <%= @gossip.title%> </h3> 
-<div class="card" style="width: 18rem;">
+<div class="card mx-auto mt-3" style="width: 18rem;">
   <div class="card-body">
     <h5 class="card-title"><%= @gossip.title%></h5>
     <h6 class="card-subtitle mb-2 text-muted"><%= @gossip.user.first_name%></h6>
     <p class="card-text"><%= @gossip.content%></p>
-    <a href="#" class="card-link">Card link</a>
-    <a href="#" class="card-link">Another link</a>
   </div>
 </div>

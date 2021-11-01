@@ -13,3 +13,16 @@
  *= require_tree .
  *= require_self
  */
+@import url('https://fonts.googleapis.com/css2?family=Atma:wght@600&display=swap');
+
+#list-rendering {
+    font-family: 'atma', cursive;
+
+}
+
+#list-rendering {
+    justify-content: center !important;
+}
+body {
+    background-color: #FEF6E9 !important;
+}

@@ -1,13 +1,16 @@
 <h1>Gossip#home</h1>
 <p>Find me in app/views/gossip/home.html.erb</p>
-<h2>BONJOUR Les Potins BONJOUR !!!</h2>
+<h2 >Les Potins du jour ... en latin</h2>
 
-<%= @gossips.each do |gossip| %>
+<div class="container row">
+  <%= @gossips.each do |gossip| %>
+      <div class="card  my-2 mx-auto" style="width: 15rem;">
+        <div class="card-body">
+          <h5 class="card-title"><a class="text-decoration-none" href="<%=home_path%>/<%=gossip.id%>"><%= gossip.title%></a></h5>
+          <p class="card-text">textum scripsit : <%= User.find(gossip.user_id).first_name%></p>
+        </div>
+      </div>
+  <% end %>
+</div>
 
-<ul class="list-group">
-  <li class="list-group-item">
-  <div class="fw-bold"><a href="<%=home_path%>/<%=gossip.id%>"><%= gossip.title%></a></div>
-  potin de : <%= User.find(gossip.user_id).first_name%>
-  </li>
-</ul>
-<% end %>
+
