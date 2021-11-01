@@ -1,0 +1,2 @@
+module HiddenPageHelper
+end
