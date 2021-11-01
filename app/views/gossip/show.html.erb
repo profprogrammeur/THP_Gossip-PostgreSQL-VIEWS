@@ -5,7 +5,13 @@
 <div class="card mx-auto mt-3" style="width: 18rem;">
   <div class="card-body">
     <h5 class="card-title"><%= @gossip.title%></h5>
-    <h6 class="card-subtitle mb-2 text-muted"><%= @gossip.user.first_name%></h6>
+    <a href="<%= home_path %>">
+      <h6 class="card-subtitle mb-2 text-decoration-none">
+      <%= @user.first_name %> 
+      <%= @user.last_name %>
+      </h6>
+    </a>
     <p class="card-text"><%= @gossip.content%></p>
+     <p class="card-text"><small class="text-muted"><%= time_ago_in_words(@gossip.created_at)%> ago.</small></p>
   </div>
 </div>
