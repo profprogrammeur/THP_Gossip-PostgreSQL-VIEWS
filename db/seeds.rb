@@ -2,7 +2,7 @@ require 'faker'
 
 nb_users = 10
 nb_cities = 10
-nb_gossips = 20
+nb_gossips = 200
 nb_tags = 10
 
 Faker::Config.locale = 'fr'
