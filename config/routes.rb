@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'cities/show'
   # get 'users/show'
   # get 'gossip/home'
   # get 'gossip/show'
