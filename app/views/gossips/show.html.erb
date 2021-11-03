@@ -1,5 +1,12 @@
 <h1>Gossip#show</h1>
-<p>Find me in app/views/gossip/show.html.erb</p>
+
+<% if flash[:success] %>
+      <div class="alert alert-success" role="alert">
+          <p>Message bien créer</p>      
+      </div>
+      <% end %>
+
+
 
 <h3> Titre :  <%= @gossip.title%> </h3> 
 <div class="card mx-auto mt-3" style="width: 18rem;">
@@ -12,6 +19,7 @@
       </h6>
     </a>
     <p class="card-text"><%= @gossip.content%></p>
-     <p class="card-text"><small class="text-muted"><%= time_ago_in_words(@gossip.created_at)%> ago.</small></p>
+    <p class="card-text"><small class="text-success">Ville de : <%= @gossip.user.city.name%></small></p>
+    <p class="card-text"><small class="text-muted"><%= time_ago_in_words(@gossip.created_at)%> ago.</small></p>
   </div>
 </div>

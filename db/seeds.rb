@@ -2,19 +2,18 @@ require 'faker'
 
 nb_users = 10
 nb_cities = 10
-nb_gossips = 200
+nb_gossips = 5
 nb_tags = 10
 
 Faker::Config.locale = 'fr'
 
-puts "Purge de la base de données..."
 
-City.destroy_all
+
 User.destroy_all
+City.destroy_all
 Tag.destroy_all
 Gossip.destroy_all
 
-puts "Début de l'insémination..."
 
 # Ajout de n City à la base de données
 cities_array = []
@@ -36,32 +35,33 @@ nb_users.times do |i|
     age: rand(18..70),
     city: City.all[i]
     )
-end
+  end
 
 puts "#{nb_users} users ont été crées"
 
 # Ajout de n Tag à la base de données
 tags_array = []
-while tags_array.length < nb_tags
-  tag = Faker::Emotion.noun
-  tags_array << tag unless tags_array.include?(tag)
-end
+  while tags_array.length < nb_tags
+    tag = Faker::Emotion.noun
+    tags_array << tag unless tags_array.include?(tag)
+  end
 tags_array.each{ |tag| Tag.create(title: tag) }
 
 puts "#{nb_tags} tags ont été crées."
 
 # Ajout de n Gossip à la base de données
 nb_gossips.times do
-  gossip = Gossip.create(
-  title: Faker::Lorem.sentence,
+  gossip = Gossip.create!(
+  title: Faker::String.random(length: 3..14),
   content: Faker::ChuckNorris.fact,
-  user: User.all.sample
+  user_id: User.all.sample.id
   )
-  rand(1..4).times do
-    tag = Tag.all.sample
-    gossip.tags << tag unless gossip.tags.include?(tag)
+  puts "//////////////////////"
+    rand(1..4).times do
+      tag = Tag.all.sample
+      gossip.tags << tag unless gossip.tags.include?(tag)
+    end
   end
-end
 puts "#{nb_gossips} gossips ont été crées"
 
 

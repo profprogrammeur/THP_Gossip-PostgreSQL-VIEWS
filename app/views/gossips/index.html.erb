@@ -1,15 +1,16 @@
 <h1>Gossip#home</h1>
 <p>Find me in app/views/gossip/home.html.erb</p>
 <h2 >Les Potins du jour ... en latin</h2>
-
+<a href="<%=gossips_path%>/new" class="btn btn-primary "> CREER UN NOUVEAU POTIN </a>
 <div class="container row">
-  <%= @gossips.each do |gossip| %>
+  <% @gossips.each do |gossip| %>
       <div class="card  my-2 mx-auto" style="width: 15rem;">
         <div class="card-body">
-          <h5 class="card-title"><a class="text-decoration-none" href="<%=home_path%>/<%=gossip.id%>"><%= gossip.title%></a></h5>
+          <h5 class="card-title"><a class="text-decoration-none" href="<%=gossip_path(gossip.id)%>"><%= gossip.title%></a></h5>
           <p class="card-text">textum scripsit : <%= User.find(gossip.user_id).first_name%></p>
         </div>
       </div>
+     
   <% end %>
 </div>
 
