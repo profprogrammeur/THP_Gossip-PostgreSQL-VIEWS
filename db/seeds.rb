@@ -1,9 +1,9 @@
 require 'faker'
 
 nb_users = 10
-nb_cities = 10
-nb_gossips = 5
-nb_tags = 10
+nb_cities = 5
+nb_gossips = 50
+nb_tags = 50
 
 Faker::Config.locale = 'fr'
 
@@ -33,7 +33,7 @@ nb_users.times do |i|
     description: Faker::Lorem.sentence,
     email: Faker::Internet.email,
     age: rand(18..70),
-    city: City.all[i]
+    city: City.all.sample
     )
   end
 

@@ -1,6 +1,20 @@
 <h1>Cities#show</h1>
 <p>Find me in app/views/cities/show.html.erb</p>
 
+<h3> POTINS de la ville de :  <%= @city.name%> </h3> 
 
-<h3> Titre :  <%= @city.name%> </h3> 
+<div class="container row">
+  <% @city.users.each do |user| %>
+    <% user.gossips.each do |gossip| %>
+      <div class="card  my-2 mx-auto" style="width: 15rem;">
+        <div class="card-body">
+          <h5 class="card-title"><a class="text-decoration-none" href="<%=gossip_path(gossip.id)%>"><%= gossip.title%></a></h5>
+          <p class="card-text">textum scripsit : <%= User.find(gossip.user_id).first_name%></p>
+          <p class="card-text"><small class="text-success">Ville de : <%= gossip.user.city.name%></small></p>
+        </div>
+      </div>
+    <% end%>
+  <% end%>
+</div>
+
 
