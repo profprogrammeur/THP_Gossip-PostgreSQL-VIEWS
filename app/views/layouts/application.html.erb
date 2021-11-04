@@ -15,8 +15,10 @@
   <body class="text-center">
     
 
+
+
   <nav class="navbar navbar-expand-lg navbar-light bg-light ">
-  <div class="container-fluid center">
+  <div class="container-fluid center " >
     <a class="navbar-brand" href="<%=gossips_path%>">THP_Rescapés</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -38,19 +40,19 @@
 
       <li class="nav-link">
     <% if session_en_cours? %>
-       <%= link_to "Bienvenue " + current_user.first_name,  {controller: "users", action: "show", id: current_user.id}, :class => "nav_item active" %>
+       <%= link_to "Bienvenue " + current_user.first_name,  {controller: "users", action: "show", id: current_user.id}, :class => "nav_item active btn btn-info" %>
     <% else %>
-      <%= link_to "S'inscrire", new_user_path, :class => "nav_item active" %>
+      <%= link_to "S'inscrire", new_user_path, :class => "nav_item active btn btn-info" %>
      <% end %>  
       </li>
 
     <li class="nav-link">
     <% if session_en_cours? %>
 
-      <%= link_to "Se déconnecter", session_path(session.id), method: :delete , :class => "nav_item active" %>
+      <%= link_to "Se déconnecter", session_path(session.id), method: :delete , :class => "nav_item active btn btn-warning" %>
     <% else %> 
 
-      <%= link_to "Se connecter", sessions_new_path, :class => "nav_item active" %>
+      <%= link_to "Se connecter", sessions_new_path, :class => "nav_item active btn btn-warning" %>
     <% end %> 
       </li> 
     </ul> 
@@ -59,10 +61,10 @@
 </nav>
 
     <% flash.each do |key, value| %>
-    <div class="flash <%= key %>" style="background-color:beige"><%= value %></div>
+    <div class="flash <%= key %>"style="background-color:beige"><%= value %></div>
     <% end %>
 
-<div class="container" >
+<div class="container" style="" >
 <%= yield %>
 </div>
   </body>
