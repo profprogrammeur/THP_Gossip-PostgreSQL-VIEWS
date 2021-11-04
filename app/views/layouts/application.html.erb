@@ -34,10 +34,35 @@
           <a class="nav-link" href="<%=contact_path%>">Contact</a>
         </li>
       </ul>
+      <ul class="navbar-nav justify-content-end">
+
+      <li class="nav-link">
+    <% if session_en_cours? %>
+       <%= link_to "Bienvenue " + current_user.first_name,  {controller: "users", action: "show", id: current_user.id}, :class => "nav_item active" %>
+    <% else %>
+      <%= link_to "S'inscrire", new_user_path, :class => "nav_item active" %>
+     <% end %>  
+      </li>
+
+    <li class="nav-link">
+    <% if session_en_cours? %>
+
+      <%= link_to "Se déconnecter", session_path(session.id), method: :delete , :class => "nav_item active" %>
+    <% else %> 
+
+      <%= link_to "Se connecter", sessions_new_path, :class => "nav_item active" %>
+    <% end %> 
+      </li> 
+    </ul> 
     </div>
   </div>
 </nav>
-<div class="container">
+
+    <% flash.each do |key, value| %>
+    <div class="flash <%= key %>" style="background-color:beige"><%= value %></div>
+    <% end %>
+
+<div class="container" >
 <%= yield %>
 </div>
   </body>

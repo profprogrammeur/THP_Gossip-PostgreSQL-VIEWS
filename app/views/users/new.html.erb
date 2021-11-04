@@ -1,0 +1,92 @@
+<% if !@user.nil? && @user.errors.any? %>
+    <div class="alert alert-danger">
+      <p>Ton compte ne peut pas être crée pour les raisons suivantes :</p>
+      <ul>
+        <% @user.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+<% end %>
+
+
+
+<div class="container">
+
+<div class="card bg-light">
+<article class="card-body mx-auto" style="max-width: 400px;">
+	<h4 class="card-title mt-3 text-center">Créer ton compte</h4>
+	
+	<form action= "<%= users_path %>" method="POST">
+
+      <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+              <div class="form-label-group">
+
+		<!-- FIRST NAME -->
+	<div class="form-group input-group">
+		<div class="input-group-prepend">
+		    <span class="input-group-text"> <i class="fa fa-user"></i> </span>
+		 </div>
+        <input name="first_name" class="form-control" placeholder="Prénom *" type="text">
+    </div> <!-- form-group// -->
+
+		<!-- FAMILY NAME -->
+	<div class="form-group input-group">
+		<div class="input-group-prepend">
+		    <span class="input-group-text"> <i class="fa fa-user"></i> </span>
+		 </div>
+        <input name="last_name" class="form-control" placeholder="Nom de famille *" type="text">
+    </div> <!-- form-group// -->
+
+		<!-- TA DESCRIPTION -->
+    	<div class="form-group input-group">
+		<div class="input-group-prepend">
+		    <span class="input-group-text"> <i class="fa fa-user"></i> </span>
+		 </div>
+        <input name="description" class="form-control" placeholder="Description" type="text">
+    </div> <!-- form-group// -->
+
+    		<!-- TON AGE -->
+    	<div class="form-group input-group">
+		<div class="input-group-prepend">
+		    <span class="input-group-text"> <i class="fa fa-user"></i> </span>
+		 </div>
+        <input name="age" class="form-control" placeholder=" Années vécues  " type="text">
+    </div> <!-- form-group// -->
+
+    <div class="form-group input-group">
+    	<div class="input-group-prepend">
+		    <span class="input-group-text"> <i class="fa fa-envelope"></i> </span>
+		 </div>
+        <input name="email" class="form-control" placeholder="Email *" type="email">
+    </div> <!-- form-group// -->
+
+    <div class="form-group input-group">
+    	<div class="input-group-prepend">
+		    <span class="input-group-text"> <i class="fa fa-building"></i> </span>
+		</div>
+			<%= select_tag 'ville', options_from_collection_for_select(City.all.order(:name), 'id','name'), class: "form-control",include_blank: "Choisir une ville" %>
+	</div> <!-- form-group end.// -->
+    <div class="form-group input-group">
+    	<div class="input-group-prepend">
+		    <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
+		</div>
+        <input class="form-control" placeholder="Créer ton mot de passe*" type="password" name="password">
+    </div> <!-- form-group// -->
+    <div class="form-group input-group">
+    	<div class="input-group-prepend">
+		    <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
+		</div>
+        <input class="form-control" placeholder="Confirme le*" type="password" name="password">
+    </div> <!-- form-group// -->                                      
+    <div class="form-group">
+        <input type="submit" value="Crée ton compte !" class="btn btn-warning btn-block mt-2">
+ 
+
+                                                               
+</form>
+</article>
+</div> <!-- card.// -->
+
+</div> 
+

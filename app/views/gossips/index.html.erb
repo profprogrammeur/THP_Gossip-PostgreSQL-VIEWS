@@ -1,5 +1,13 @@
 <h1>Gossip#home</h1>
 
+<%= puts  "44444444444444444444444444444444444444444444444"
+puts params%>
+<% if params[:current_user] %>
+ <div class="alert alert-success">
+<h2>Bienvenue <%= current_user.first_name %> !</h2>
+</div>
+<% end %>
+
 <h2 >Les Potins du jour ... en latin</h2>
 <a href="<%=gossips_path%>/new" class="btn btn-primary "> CREER UN NOUVEAU POTIN </a>
 <div class="container row">
