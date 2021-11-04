@@ -8,6 +8,8 @@
         <div class="card-body">
           <h5 class="card-title"><a class="text-decoration-none" href="<%=gossip_path(gossip.id)%>"><%= gossip.title%></a></h5>
           <p class="card-text">textum scripsit : <%= User.find(gossip.user_id).first_name%></p>
+          <p class="card-text"><small class="text-success"> <%= gossip.user.city.name%></small></p> 
+
         </div>
       </div>
      

@@ -19,7 +19,11 @@
       </h6>
     </a>
     <p class="card-text"><%= @gossip.content%></p>
-    <p class="card-text"><small class="text-success">Ville de : <%= @gossip.user.city.name%></small></p>
+
+     <a href="<%=cities_show_path(@user.city.id)%>" class="btn btn-primary">
+       <%= @user.city.name%> </a>
+   <!-- <p class="card-text"><small class="text-success">Ville de : <%= @gossip.user.city.name%></small></p> -->
+    
     <p class="card-text"><small class="text-muted"><%= time_ago_in_words(@gossip.created_at)%> ago.</small></p>
   </div>
 </div>
