@@ -52,7 +52,7 @@
       <%= link_to "Se déconnecter", session_path(session.id), method: :delete , :class => "nav_item active btn btn-warning" %>
     <% else %> 
 
-      <%= link_to "Se connecter", sessions_new_path, :class => "nav_item active btn btn-warning" %>
+      <%= link_to "Se connecter", new_session_path, :class => "nav_item active btn btn-warning" %>
     <% end %> 
       </li> 
     </ul> 

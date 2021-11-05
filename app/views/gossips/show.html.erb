@@ -17,7 +17,7 @@
       </h6>
     </a>
     <p class="card-text"><%= @gossip.content%></p>
-    <a href="<%=cities_show_path(@user.city.id)%>" class="btn btn-sm btn-primary">
+    <a href="<%=city_path%>" class="btn btn-sm btn-primary">
       <%= @user.city.name%> </a>    
     <p class="card-text"><small class="text-muted"><%= time_ago_in_words(@gossip.created_at)%> ago.</small></p>
   </div>
