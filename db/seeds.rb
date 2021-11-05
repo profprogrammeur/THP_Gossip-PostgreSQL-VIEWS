@@ -7,13 +7,10 @@ nb_tags = 50
 
 Faker::Config.locale = 'fr'
 
-
-
 User.destroy_all
 City.destroy_all
 Tag.destroy_all
 Gossip.destroy_all
-
 
 # Ajout de n City à la base de données
 cities_array = []
@@ -33,7 +30,8 @@ nb_users.times do |i|
     description: Faker::Lorem.sentence,
     email: Faker::Internet.email,
     age: rand(18..70),
-    city: City.all.sample
+    city: City.all.sample,
+    password: "azertuiop"
     )
   end
 
